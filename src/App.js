@@ -26,13 +26,17 @@ function App() {
       );
   }, []);
 
-
   // @TODO - Re-wire this up w/ new data from above.
-  const liveMatches = data.liveMatch;
+
+
   const upcomingMatch = _.isEmpty(data.nextMatch) ? 'No upcoming matches either' : 'Some upcoming match component';
 
   // If data exists show it, otherwise don't bother.
-  if ((!_.isEmpty(data.data))) {
+  if (data.length) {
+    const liveMatches = data[0].data.liveMatch;
+    const nextMatch = data[0].data.nextMatch;
+    const previousMatches = data[1];
+
     if (!_.isEmpty(liveMatches)) {
       return <Player />;
     } else {
