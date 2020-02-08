@@ -12,7 +12,7 @@ function App() {
 
   useEffect(() => {
     const getLiveMatches = axios.get(`${urlBase}/live-match`);
-    const getPreviousMatches = axios.get(`${urlBase}/matches`);
+    const getPreviousMatches = axios.get(`${urlBase}/matches?`);
 
     axios
       .all([getLiveMatches, getPreviousMatches])
@@ -38,12 +38,12 @@ function App() {
     const previousMatches = data[1];
 
     if (!_.isEmpty(liveMatches)) {
-      return <Player />;
+      return <Player competitors={liveMatches.competitors} />;
     } else {
       return (
         <React.Fragment>
           { upcomingMatch }
-          <PreviousMatches />
+          <PreviousMatches props={previousMatches} />
         </React.Fragment>
       );
     }
