@@ -1,100 +1,62 @@
 name: Bug Report
-description: Create a report for a bug or problem with the site.
-title: "SITENAME: …"
-labels: ["bug"]
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug", "triage"]
 assignees:
-  - danarbello
+  - octocat
 body:
   - type: markdown
     attributes:
-      label: Description
-      description: Provide a description of the bug or problem.
-      placeholder: e.g., As a content editor, I would like the page to load without receiving a 404.
-    validations:
-      required: true
+      value: |
+        Thanks for taking the time to fill out this bug report!
   - type: input
-    id: issue_owner
+    id: contact
     attributes:
-      label: Issue Owner
-      description: A list of one or more individuals, in most cases this is the client project manager, tech lead, and/or initial reporter. Must use a GitHub handle.
-      placeholder: e.g., @github_handle or "N/A" if issue owner is applicable.
-    validations:
-      required: true
-  - type: markdown
-    id: replication
-    attributes:
-      label: How can one reproduce the bug?
-      description: Tell the team how you were able to reproduce the bug?
-      placeholder: 1. Go to "…" / 2. Click on "…" / 3. Scroll down to"…" / etc.
-    validations:
-      required: true
-  - type: dropdown
-    id: environment
-    attributes:
-      label: What operating system(s) are you seeing the problem on?
-      multiple: true
-      options:
-        - Windows
-        - macOS
-        - iOS
-        - Android
-        - Other desktop
-        - Other mobile
-    validations:
-      required: true
-  - type: dropdown
-    id: browser
-    attributes:
-      label: What browser(s) are you seeing the problem on?
-      multiple: true
-      options:
-        - Chrome
-        - Firefox
-        - Safari
-        - Microsoft Edge
-    validations:
-      required: true
-  - type: dropdown
-    id: device
-    attributes:
-      label: What device(s) are you seeing the problem on?
-      multiple: true
-      options:
-        - Desktop PC
-        - Laptop
-        - iPad
-        - Other tablet
-        - iPhone
-        - Android phone
-    validations:
-      required: true
-  - type: markdown
-    id: expected_behavior
-    attributes:
-      label: Expected Behavior
-      description: Describe what you expect to happen.
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
     validations:
       required: false
-  - type: checkboxes
-    id: acceptance_criteria
+  - type: textarea
+    id: what-happened
     attributes:
-      label: Acceptance Criteria
-      description: List of one or more requirements that must be met in order for this ticket to be considered "done". Use checkboxes to mark each item as an actionable item.
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
       options:
-        - label: TK
-          required: false
-  - type: markdown
-      id: screenshot
-      attributes:
-        label: Screenshots
-        description: Provide an image of the bug or problem to help the team better understand the context of the report.
-        placeholder: Drag and drop an image into this field.
-      validations:
-        required: false
-  - type: markdown
-      id: context
-      attributes:
-        label: Additional Context
-        description: Is there any additional context (e.g., Slack, Basecamp, or email thread; other ticket(s)) that woulb be helpful?
-      validations:
-        required: false
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
