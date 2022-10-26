@@ -1,0 +1,100 @@
+name: Bug Report
+description: Create a report for a bug or problem with the site.
+title: "SITENAME: …"
+labels: ["bug"]
+assignees:
+  - danarbello
+body:
+  - type: markdown
+    attributes:
+      label: Description
+      description: Provide a description of the bug or problem.
+      placeholder: e.g., As a content editor, I would like the page to load without receiving a 404.
+    validations:
+      required: true
+  - type: input
+    id: issue_owner
+    attributes:
+      label: Issue Owner
+      description: A list of one or more individuals, in most cases this is the client project manager, tech lead, and/or initial reporter. Must use a GitHub handle.
+      placeholder: e.g., @github_handle or "N/A" if issue owner is applicable.
+    validations:
+      required: true
+  - type: markdown
+    id: replication
+    attributes:
+      label: How can one reproduce the bug?
+      description: Tell the team how you were able to reproduce the bug?
+      placeholder: 1. Go to "…" / 2. Click on "…" / 3. Scroll down to"…" / etc.
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: What operating system(s) are you seeing the problem on?
+      multiple: true
+      options:
+        - Windows
+        - macOS
+        - iOS
+        - Android
+        - Other desktop
+        - Other mobile
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: What browser(s) are you seeing the problem on?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Microsoft Edge
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: What device(s) are you seeing the problem on?
+      multiple: true
+      options:
+        - Desktop PC
+        - Laptop
+        - iPad
+        - Other tablet
+        - iPhone
+        - Android phone
+    validations:
+      required: true
+  - type: markdown
+    id: expected_behavior
+    attributes:
+      label: Expected Behavior
+      description: Describe what you expect to happen.
+    validations:
+      required: false
+  - type: checkboxes
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List of one or more requirements that must be met in order for this ticket to be considered "done". Use checkboxes to mark each item as an actionable item.
+      options:
+        - label: TK
+          required: false
+  - type: markdown
+      id: screenshot
+      attributes:
+        label: Screenshots
+        description: Provide an image of the bug or problem to help the team better understand the context of the report.
+        placeholder: Drag and drop an image into this field.
+      validations:
+        required: false
+  - type: markdown
+      id: context
+      attributes:
+        label: Additional Context
+        description: Is there any additional context (e.g., Slack, Basecamp, or email thread; other ticket(s)) that woulb be helpful?
+      validations:
+        required: false
